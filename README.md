@@ -1,6 +1,6 @@
 # Digital Wallet API
 
-A secure REST API for digital wallets. Supports user registration, JWT authentication, deposits, withdrawals, and peer-to-peer transfers.
+A simple securedigital wallets. Supports user registration, JWT authentication, deposits, withdrawals, and transfer.
 
 ## Features
 
