@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: digital_wallet
+    ports:
+      - "5433:5432"
+  
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_SERVER=db
