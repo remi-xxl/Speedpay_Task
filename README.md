@@ -2,6 +2,9 @@
 
 A simple securedigital wallets. Supports user registration, JWT authentication, deposits, withdrawals, and transfer.
 
+##live server
+https://speedpay-task-1.onrender.com
+
 ## Features
 
 - User registration with automatic 6-digit account number generation
