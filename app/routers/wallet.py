@@ -1,18 +1,4 @@
-# app/routers/wallet.py
-#
-# WHY THIS FILE EXISTS:
-# This router contains the four core wallet operations. Every endpoint here
-# requires a valid JWT (via Depends(get_current_user)), which means:
-#   - Unauthenticated requests get HTTP 401 automatically.
-#   - The route handler receives the already-loaded User object.
-#   - Users can ONLY operate on their own account — the account to act on
-#     is determined by the token, not by a URL parameter the user could tamper with.
-#
-# ROUTE STRUCTURE:
-#   POST /wallet/deposit      → add money
-#   POST /wallet/withdraw     → remove money
-#   GET  /wallet/balance      → check balance
-#   POST /wallet/transfer     → send money to another user
+
 
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session

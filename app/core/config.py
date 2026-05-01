@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     POSTGRES_USER: str = "postgres"
     POSTGRES_PASSWORD: str = "admin"
     POSTGRES_DB: str = "digital_wallet"
+    DATABASE_URL: Optional[str] = None
     SQLALCHEMY_DATABASE_URI: Optional[str] = None
     
     # JWT
@@ -26,6 +27,8 @@ class Settings(BaseSettings):
 
 settings = Settings()
 settings.SQLALCHEMY_DATABASE_URI = (
-    f"postgresql://{settings.POSTGRES_USER}:{settings.POSTGRES_PASSWORD}"
+    settings.SQLALCHEMY_DATABASE_URI
+    or settings.DATABASE_URL
+    or f"postgresql://{settings.POSTGRES_USER}:{settings.POSTGRES_PASSWORD}"
     f"@{settings.POSTGRES_SERVER}:{settings.POSTGRES_PORT}/{settings.POSTGRES_DB}"
 )

@@ -10,11 +10,7 @@ from app.routers import admin, auth, wallet
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """
-    Code here runs ONCE when the server starts.
-    `yield` separates startup from shutdown code.
-    Everything after yield runs when the server stops.
-    """
+   
 
     Base.metadata.create_all(bind=engine)
     yield

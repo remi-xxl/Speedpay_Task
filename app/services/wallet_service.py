@@ -36,15 +36,12 @@ class WalletService:
         )
 
         self.db.add(txn)
-        self.db.commit()          # write both the balance update and the new row
-        self.db.refresh(txn)      # reload the row to get DB-generated fields (id, created_at)
-        self.db.refresh(user)     # ensure user.balance reflects the committed value
+        self.db.commit()          
+        self.db.refresh(txn)      
+        self.db.refresh(user)     
         return txn
 
-    # -----------------------------------------------------------------------
-    # WITHDRAW
-    # -----------------------------------------------------------------------
-
+   
     def withdraw(self, user: User, amount: Decimal, description: str | None) -> Transaction:
         current_balance = Decimal(str(user.balance))
 
